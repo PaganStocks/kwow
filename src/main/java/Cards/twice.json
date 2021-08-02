@@ -1,67 +1,76 @@
 {
-  "Twice members": [
+  "Twice": [
     {
       "name": "Jihyo",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWJI#0"
     },
     {
       "name": "Nayeon",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWNA#"
     },
     {
       "name": "Jeongyeon",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWJE#"
     },
     {
       "name": "Momo",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWMO#"
     },
     {
       "name": "Sana",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWSA#"
     },
     {
       "name": "Mina",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWMI#"
     },
     {
       "name": "Dahyun",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWDA#"
     },
     {
       "name": "Chaeyoung",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWCH#"
     },
     {
       "name": "Tzuyu",
       "Group": "Twice",
       "Rarity": 1,
       "version": 1,
-      "Issue": 0
+      "Issue": 0,
+      "Code": "TWTZ#"
     }
   ]
 }

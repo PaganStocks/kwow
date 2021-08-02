@@ -1,0 +1,63 @@
+[
+  {
+    "name": "BTS",
+    "members": [
+      {
+        "name": "Rm",
+        "Group": "BTS",
+        "Rarity": 1,
+        "version": 1,
+        "Issue": 0,
+        "code": "BTSRM#"
+      },
+      {
+        "name": "Jin",
+        "Group": "BTS",
+        "Rarity": 1,
+        "version": 1,
+        "Issue": 0,
+        "code": "BTSJI#"
+      },
+      {
+        "name": "Suga",
+        "Group": "BTS",
+        "Rarity": 1,
+        "version": 1,
+        "Issue": 0,
+        "code": "BTSSU#"
+      },
+      {
+        "name": "J-hope",
+        "Group": "BTS",
+        "Rarity": 1,
+        "version": 1,
+        "Issue": 0,
+        "code": "BTSJH#"
+      },
+      {
+        "name": "Jimin",
+        "Group": "BTS",
+        "Rarity": 1,
+        "version": 1,
+        "Issue": 0,
+        "code": "BTSJM#"
+      },
+      {
+        "name": "V",
+        "Group": "BTS",
+        "Rarity": 1,
+        "version": 1,
+        "Issue": 0,
+        "code": "BTSV#"
+      },
+      {
+        "name": "Jungkook",
+        "Group": "BTS",
+        "Rarity": 1,
+        "version": 1,
+        "Issue": 0,
+        "code": "BTSJK#"
+      }
+    ]
+  }
+]
