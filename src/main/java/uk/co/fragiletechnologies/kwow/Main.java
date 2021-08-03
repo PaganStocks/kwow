@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
         final String token = args[0];
 
-        Flyway flyway = Flyway.configure().dataSource("jdbc:postgresql://localhost:5432/kwow", "postgres", "foo").load();
+        Flyway flyway = Flyway.configure().dataSource().load();
         flyway.migrate();
 
         final DiscordClient client = DiscordClient.create(token);
