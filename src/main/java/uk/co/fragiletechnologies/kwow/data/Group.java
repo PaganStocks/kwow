@@ -1,11 +1,12 @@
 package uk.co.fragiletechnologies.kwow.data;
 
+
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "artists")
-public class Artist {
+@Table(name = "groups")
+public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -13,24 +14,22 @@ public class Artist {
 
     private String name;
 
-    private String image;
-
-    public Artist() {
-    }
-
-    public Artist(String name) {
-        this.name = name;
+    public Group() {
     }
 
     public UUID getId() {
         return id;
     }
 
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public String getImage() { return image;}
-
-
+    public void setName(String name) {
+        this.name = name;
+    }
 }
