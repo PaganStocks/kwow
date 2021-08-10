@@ -5,14 +5,13 @@ import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import org.flywaydb.core.Flyway;
 import uk.co.fragiletechnologies.kwow.comands.*;
-import uk.co.fragiletechnologies.kwow.data.Artist;
 import uk.co.fragiletechnologies.kwow.data.ArtistsRepository;
+import discord4j.core.object.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
-import java.util.UUID;
 
 
 public class Main {
@@ -30,7 +29,7 @@ public class Main {
         final DiscordClient client = DiscordClient.create(token);
         final GatewayDiscordClient gateway = client.login().block();
 
-        List<MessageHandler> messageHandlers = List.of(new PingHandler(), new DailyHandler(artistsRepository), new DropHandler());
+        List<MessageHandler> messageHandlers = List.of(new PingHandler(), new BalanceHandler(), new DailyHandler(artistsRepository), new DropHandler(artistsRepository), new WeeklyHandler(artistsRepository));
 
         gateway.on(MessageCreateEvent.class).subscribe(event -> {
             String message = event.getMessage().getContent();

@@ -13,7 +13,13 @@ public class Artist {
 
     private String name;
 
+    private int rarity;
+
     private String image;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "group")
+    private Group group;
 
     public Artist() {
     }
@@ -30,7 +36,19 @@ public class Artist {
         return name;
     }
 
-    public String getImage() { return image;}
+    public String getImage() {
+        return image;
+    }
 
+    public int getRarity() {
+        return rarity;
+    }
 
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 }

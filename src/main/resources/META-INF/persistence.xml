@@ -5,6 +5,7 @@
     <persistence-unit name="kwow">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>uk.co.fragiletechnologies.kwow.data.Artist</class>
+        <class>uk.co.fragiletechnologies.kwow.data.Group</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://34.142.42.25:5432/kwow"/>

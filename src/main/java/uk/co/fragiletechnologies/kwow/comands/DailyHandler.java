@@ -5,6 +5,11 @@ import discord4j.core.spec.EmbedCreateSpec;
 import uk.co.fragiletechnologies.kwow.data.Artist;
 import uk.co.fragiletechnologies.kwow.data.ArtistsRepository;
 
+import static java.lang.String.format;
+
+/**
+ * once a day you can drop a card and it will go into the players inventory
+ */
 public class DailyHandler implements MessageHandler {
 
     private final ArtistsRepository artistsRepository;
@@ -15,6 +20,7 @@ public class DailyHandler implements MessageHandler {
 
     @Override
     public void handleMessage(String message, MessageChannel messageChannel) {
+
         // Get artists
         Artist artists = artistsRepository.randomArtist();
         messageChannel.createEmbed(embedSpec -> createEmbedForDrop(embedSpec, artists)).block();
@@ -27,9 +33,13 @@ public class DailyHandler implements MessageHandler {
 
     private static void createEmbedForDrop(EmbedCreateSpec embedCreateSpec, Artist artist) {
         embedCreateSpec.setTitle("Your Daily");
-        embedCreateSpec.addField(artist.getName(), artist.getName() , true);
+        embedCreateSpec.addField(" Congratulations!" , format("You have debuted: \n %s %s's %s", starsForArtist(artist), artist.getGroup().getName(), artist.getName()) , true);
 
         embedCreateSpec
-                .setImage("https://storage.googleapis.com/kwow-images/Mark-nct127-v1.png");
+                .setImage(artist.getImage());
+    }
+
+    private static String starsForArtist(Artist artist) {
+        return ("⭐️").repeat(artist.getRarity());
     }
 }

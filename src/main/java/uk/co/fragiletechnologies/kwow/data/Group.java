@@ -2,6 +2,7 @@ package uk.co.fragiletechnologies.kwow.data;
 
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -13,6 +14,9 @@ public class Group {
     private UUID id;
 
     private String name;
+
+    @OneToMany(mappedBy = "group")
+    private List<Artist> artists;
 
     public Group() {
     }
@@ -31,5 +35,13 @@ public class Group {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Artist> getArtists() {
+        return artists;
+    }
+
+    public void setArtists(List<Artist> artists) {
+        this.artists = artists;
     }
 }
