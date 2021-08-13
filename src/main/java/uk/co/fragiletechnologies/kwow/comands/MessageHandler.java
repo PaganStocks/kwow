@@ -1,5 +1,6 @@
 package uk.co.fragiletechnologies.kwow.comands;
 
+import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
 
 /**
@@ -10,7 +11,7 @@ import discord4j.core.object.entity.channel.MessageChannel;
 public interface MessageHandler {
     String PREFIX = "!";
 
-    void handleMessage(String message, MessageChannel messageChannel);
+    void handleMessage(Message message, MessageChannel messageChannel);
 
-    boolean supportsMessage(String message);
+    boolean supportsMessage(Message message);
 }

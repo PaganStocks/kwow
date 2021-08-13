@@ -1,5 +1,6 @@
 package uk.co.fragiletechnologies.kwow.comands;
 
+import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
 import discord4j.core.spec.EmbedCreateSpec;
 import uk.co.fragiletechnologies.kwow.data.Artist;
@@ -20,7 +21,7 @@ public class DropHandler implements MessageHandler {
     public DropHandler(ArtistsRepository artistsRepository) {this.artistsRepository = artistsRepository;}
 
     @Override
-    public void handleMessage(String message, MessageChannel messageChannel) {
+    public void handleMessage(Message message, MessageChannel messageChannel) {
         // Get artists
         List<Artist> artists = artistsRepository.randomArtists(3);
         messageChannel.createEmbed(embedSpec -> createEmbedForDrop(embedSpec, artists)).block();
@@ -30,8 +31,8 @@ public class DropHandler implements MessageHandler {
     }
 
     @Override
-    public boolean supportsMessage(String message) {
-        return message.startsWith(PREFIX + "drop");
+    public boolean supportsMessage(Message message) {
+        return message.getContent().startsWith(PREFIX + "drop");
 
     }
 

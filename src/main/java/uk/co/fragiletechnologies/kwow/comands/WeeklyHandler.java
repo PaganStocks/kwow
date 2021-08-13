@@ -1,5 +1,6 @@
 package uk.co.fragiletechnologies.kwow.comands;
 
+import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
 import discord4j.core.spec.EmbedCreateSpec;
 import uk.co.fragiletechnologies.kwow.data.Artist;
@@ -18,15 +19,15 @@ public class WeeklyHandler implements MessageHandler {
     }
 
     @Override
-    public void handleMessage(String message, MessageChannel messageChannel) {
+    public void handleMessage(Message message, MessageChannel messageChannel) {
         List<Artist> artists = artistsRepository.randomArtists(2);
         messageChannel.createEmbed(embedSpec -> createEmbedForWeekly(embedSpec, artists)).block();
 
     }
 
     @Override
-    public boolean supportsMessage(String message) {
-        return message.startsWith(PREFIX + "weekly");
+    public boolean supportsMessage(Message message) {
+        return message.getContent().startsWith(PREFIX + "weekly");
     }
 
     private void createEmbedForWeekly(EmbedCreateSpec embedCreateSpec, List<Artist> artists) {

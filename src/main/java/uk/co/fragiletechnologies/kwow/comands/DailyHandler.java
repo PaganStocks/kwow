@@ -1,5 +1,6 @@
 package uk.co.fragiletechnologies.kwow.comands;
 
+import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
 import discord4j.core.spec.EmbedCreateSpec;
 import uk.co.fragiletechnologies.kwow.data.Artist;
@@ -19,7 +20,7 @@ public class DailyHandler implements MessageHandler {
     }
 
     @Override
-    public void handleMessage(String message, MessageChannel messageChannel) {
+    public void handleMessage(Message message, MessageChannel messageChannel) {
 
         // Get artists
         Artist artists = artistsRepository.randomArtist();
@@ -27,8 +28,8 @@ public class DailyHandler implements MessageHandler {
     }
 
     @Override
-    public boolean supportsMessage(String message) {
-        return message.startsWith(PREFIX + "daily");
+    public boolean supportsMessage(Message message) {
+        return message.getContent().startsWith(PREFIX + "daily");
     }
 
     private static void createEmbedForDrop(EmbedCreateSpec embedCreateSpec, Artist artist) {
