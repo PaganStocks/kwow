@@ -19,7 +19,6 @@ public class Main {
     public static void main(String[] args) {
         final String token = args[0];
 
-
         Flyway flyway = Flyway.configure().dataSource("jdbc:postgresql://34.142.42.25:5432/kwow", "kwow", "smashsomeshit").load();
 //        Flyway flyway = Flyway.configure().dataSource("jdbc:postgresql://localhost:5432/kwow", "postgres", "foo").load();
         flyway.migrate();
@@ -33,7 +32,7 @@ public class Main {
         final DiscordClient client = DiscordClient.create(token);
         final GatewayDiscordClient gateway = client.login().block();
 
-        List<MessageHandler> messageHandlers = List.of(new PingHandler(), new BalanceHandler(playersRepository), new DailyHandler(artistsRepository), new DropHandler(artistsRepository), new WeeklyHandler(artistsRepository), new ProfileHandler(playersRepository), new SummonHandler(artistsRepository));
+        List<MessageHandler> messageHandlers = List.of(new PingHandler(), new BalanceHandler(playersRepository), new DailyHandler(artistsRepository), new DropHandler(artistsRepository), new WeeklyHandler(artistsRepository), new ProfileHandler(playersRepository), new SummonHandler(artistsRepository), new GiveHandler(playersRepository));
         gateway.on(MessageCreateEvent.class).subscribe(event -> {
             Message message = event.getMessage();
             MessageHandler handler = messageHandlers.stream()

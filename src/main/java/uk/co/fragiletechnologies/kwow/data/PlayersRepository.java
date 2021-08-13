@@ -21,4 +21,7 @@ public class PlayersRepository {
     public void createUser(Player entity) {
 
     }
+
+    public void transferBalance(long currentUser, long targetUser, int amount) {
+    }
 }

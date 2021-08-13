@@ -30,8 +30,8 @@ public class BalanceHandler implements MessageHandler {
 
     @Override
     public boolean supportsMessage(Message message) {
-        String content = message.getContent();
-        return content.startsWith(PREFIX + "Balance") || content.startsWith(PREFIX + "bal");
+        String lowerCaseContent = message.getContent().toLowerCase();
+        return lowerCaseContent.equals(PREFIX + "balance") || lowerCaseContent.equals(PREFIX + "bal");
     }
 
     public void createEmbedForBal(EmbedCreateSpec embedCreateSpec, long balance) {
