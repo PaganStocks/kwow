@@ -1,6 +1,9 @@
 package uk.co.fragiletechnologies.kwow.data;
 
+import uk.co.fragiletechnologies.kwow.exception.InsufficientBalanceException;
+
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 public class PlayersRepository {
@@ -22,6 +25,24 @@ public class PlayersRepository {
 
     }
 
-    public void transferBalance(long currentUser, long targetUser, int amount) {
+    public void transferBalance(long currentUserId, long targetUser, int amount) {
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        Player current = findByDiscordId(currentUserId);
+        Player target = findByDiscordId(targetUser);
+
+        if (current.getBalance() < amount) {
+            transaction.rollback();
+            throw new InsufficientBalanceException(amount, current.getBalance());
+        }
+
+        long newCurrentBalance = current.getBalance() - amount;
+        long newTargetBalance = target.getBalance() + amount;
+
+        current.setBalance(newCurrentBalance);
+        target.setBalance(newTargetBalance);
+        entityManager.persist(current);
+        entityManager.persist(target);
+        transaction.commit();
     }
 }

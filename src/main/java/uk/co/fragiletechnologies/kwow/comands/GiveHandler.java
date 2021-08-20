@@ -5,6 +5,7 @@ import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
 import discord4j.core.object.entity.channel.MessageChannel;
 import uk.co.fragiletechnologies.kwow.data.PlayersRepository;
+import uk.co.fragiletechnologies.kwow.exception.InsufficientBalanceException;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,8 @@ public class GiveHandler implements MessageHandler {
             playersRepository.transferBalance(currentUser, targetUser, amount);
         } catch (NumberFormatException e) {
             messageChannel.createMessage(String.format("'%s' is not a valid amount", amountString)).block();
+        } catch (InsufficientBalanceException e) {
+            messageChannel.createMessage(String.format("you tried to give '%s' but you only have '%s'", e.getAmount() , e.getCurrentBalance())).block();
         }
     }
 
