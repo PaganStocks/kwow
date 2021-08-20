@@ -22,7 +22,9 @@ public class PlayersRepository {
     }
 
     public void createUser(Player entity) {
-
+        entityManager.getTransaction().begin();
+        entityManager.persist(entity);
+        entityManager.getTransaction().commit();
     }
 
     public void transferBalance(long currentUserId, long targetUser, int amount) {

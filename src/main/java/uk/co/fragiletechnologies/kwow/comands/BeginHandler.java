@@ -27,6 +27,6 @@ public class BeginHandler implements MessageHandler {
 
     @Override
     public boolean supportsMessage(Message message) {
-        return false;
+        return message.getContent().equalsIgnoreCase(PREFIX + "begin");
     }
 }

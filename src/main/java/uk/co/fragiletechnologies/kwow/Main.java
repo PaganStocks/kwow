@@ -32,7 +32,18 @@ public class Main {
         final DiscordClient client = DiscordClient.create(token);
         final GatewayDiscordClient gateway = client.login().block();
 
-        List<MessageHandler> messageHandlers = List.of(new PingHandler(), new BalanceHandler(playersRepository), new DailyHandler(artistsRepository), new DropHandler(artistsRepository), new WeeklyHandler(artistsRepository), new ProfileHandler(playersRepository), new SummonHandler(artistsRepository), new GiveHandler(playersRepository));
+        List<MessageHandler> messageHandlers = List.of(
+                new PingHandler(),
+                new BalanceHandler(playersRepository),
+                new DailyHandler(artistsRepository),
+                new DropHandler(artistsRepository),
+                new WeeklyHandler(artistsRepository),
+                new ProfileHandler(playersRepository),
+                new SummonHandler(artistsRepository),
+                new GiveHandler(playersRepository),
+                new BeginHandler(playersRepository)
+        );
+
         gateway.on(MessageCreateEvent.class).subscribe(event -> {
             Message message = event.getMessage();
             MessageHandler handler = messageHandlers.stream()
